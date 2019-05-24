@@ -260,6 +260,6 @@ class JWTAuthServiceProvider extends ServiceProvider
      */
     protected function config($key, $default = null)
     {
-        return $this->app['config']->get("jwt::$key", $default);
+        return $this->app['config']->get("jwt.$key", $default);
     }
 }
