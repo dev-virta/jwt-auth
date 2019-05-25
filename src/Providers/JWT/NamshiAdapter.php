@@ -90,6 +90,6 @@ class NamshiAdapter extends JWTProvider implements JWTInterface
      */
     private function getEncoderFromToken($token)
     {
-        $encoder = strpbrk($jwsTokenString, '+/=') ? new Base64Encoder() : new Base64UrlSafeEncoder();
+        $encoder = strpbrk($token, '+/=') ? new Base64Encoder() : new Base64UrlSafeEncoder();
     }
 }
