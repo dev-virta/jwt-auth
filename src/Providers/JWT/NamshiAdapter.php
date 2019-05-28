@@ -75,7 +75,6 @@ class NamshiAdapter extends JWTProvider implements JWTInterface
         $encoder = $this->getEncoderFromToken($token);
         $decodedSignature = $encoder->decode($jws->getEncodedSignature());
         $signinInput = $this->getSigninInput($jws, $token);
-        $test = $jws->getSigninInput();
 
         // Signed the input using deprecated method
         $signedInput = hash_hmac('sha256', $signinInput, (string) $key);
