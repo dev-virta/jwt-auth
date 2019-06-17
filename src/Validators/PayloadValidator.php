@@ -85,7 +85,8 @@ class PayloadValidator extends AbstractValidator
      */
     protected function validateRefresh(array $payload)
     {
-        if (Utils::timestamp($payload['iat'])->diffInMinutes(Utils::now()) >= $this->refreshTTL) {
+        if (Utils::timestamp($payload['iat'])->diffInMinutes(Utils::now()) >= $this->refreshTTL
+            && Utils::timestamp($payload['nbf'])->diffInMinutes(Utils::now()) >= $this->refreshTTL) {
             throw new TokenExpiredException('Token has expired and can no longer be refreshed', 400);
         }
 
